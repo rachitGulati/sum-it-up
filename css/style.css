@@ -285,3 +285,56 @@ footer.page-footer {
     transform: translate3d(-50%,-50%,0);
     width: 100%;
 }
+
+/* Float Shadow For Button*/
+.download-button{
+  padding: 10px 40px;
+  font-size:24px;
+  color: white;
+  background-color: #E64A19;
+  border: 0px;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+.download-button {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.download-button:before {
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+  content: '';
+  top: 100%;
+  left: 5%;
+  height: 10px;
+  width: 90%;
+  opacity: 0;
+  background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.35) 0%, transparent 80%);
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, transparent 80%);
+  /* W3C */
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform, opacity;
+  transition-property: transform, opacity;
+}
+.download-button:hover, .download-button:focus, .download-button:active {
+  -webkit-transform: translateY(-5px);
+  transform: translateY(-5px);
+  /* move the element up by 5px */
+}
+.download-button:hover:before, .download-button:focus:before, .download-button:active:before {
+  opacity: 1;
+  -webkit-transform: translateY(5px);
+  transform: translateY(5px);
+  /* move the element down by 5px (it will stay in place because it's attached to the element that also moves up 5px) */
+}
